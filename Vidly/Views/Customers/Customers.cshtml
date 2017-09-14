@@ -1,0 +1,36 @@
+﻿@model Vidly.ViewModels.CustmersListViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@*<a href="~/customers/edit/0" class="btn btn-primary">Add</a>*@
+@Html.ActionLink("Add", "Edit", new { id = 0} , new { @class="btn btn-primary"})
+<h2>
+    @if (!Model.listOfCustomers.Any())
+    {
+        <p>Sorry We Don't have any Customers yet!</p>
+    }
+</h2>
+
+<table  class="table table-­bordered  table-­hover">
+    <thead>
+        <tr>
+            <th>@ViewBag.Title</th>
+            <th>Membership Type</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.listOfCustomers)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Edit", new { id = customer.id })</td>
+                <td>@customer.MemberShipTypes.Name</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = customer.id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

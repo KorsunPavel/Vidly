@@ -1,0 +1,16 @@
+﻿@model Vidly.Models.Movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+<p>@Model.Name</p>
+
+@Html.LabelFor(m => m.Genre.Name)
+<p>@Model.Genre.Name</p>
+@Html.Label("m => m.ReleaseDate", "Release Date")
+<p>@Model.ReleaseDate.Date</p>
+@Html.Label("Date of added events")
+<p>@Model.DateAdded.Date</p>
+@Html.LabelFor(m => m.NumberInStock, "Number in the Stock")
+<p>@Model.NumberInStock</p>

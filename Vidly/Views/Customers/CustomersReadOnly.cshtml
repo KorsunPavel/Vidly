@@ -1,0 +1,32 @@
+﻿@model Vidly.ViewModels.CustmersListViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<h2>
+    @if (!Model.listOfCustomers.Any())
+    {
+        <p>Sorry We Don't have any Customers yet!</p>
+    }
+</h2>
+
+<table  class="table table-­bordered  table-­hover">
+    <thead>
+        <tr>
+            <th>@ViewBag.Title</th>
+            <th>Membership Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.listOfCustomers)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.MemberShipTypes.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
